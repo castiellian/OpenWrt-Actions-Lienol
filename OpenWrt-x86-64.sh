@@ -7,8 +7,9 @@
 # Blog: https://p3terx.com
 #=================================================
 
-# 定制默认IP
-sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate
+sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate #定制默认IP
+sed -i 's/max-width:200px/max-width:1000px/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm #修改首页样式
+# sed -i 's/o.default = "admin"/o.default = ""/g' lienol/luci-app-passwall/luasrc/model/cbi/passwall/balancing.lua #去除haproxy默认密码(最新版已无密码)
 
 # 添加第三方软件包
 git clone https://github.com/tty228/luci-app-serverchan package/luci-app-serverchan
@@ -151,6 +152,7 @@ cat >> .config <<EOF
 # CONFIG_PACKAGE_luci-app-mwan3helper is not set #多拨负载均衡
 # CONFIG_PACKAGE_luci-app-mwan3 is not set #多线多拨
 # CONFIG_PACKAGE_luci-app-hd-idle is not set #磁盘休眠
+# CONFIG_PACKAGE_luci-app-wrtbwmon is not set #实时流量监测
 #
 # VPN相关插件(禁用):
 #
@@ -197,7 +199,6 @@ CONFIG_PACKAGE_luci-app-control-webrestriction=y #访问限制
 CONFIG_PACKAGE_luci-app-control-weburl=y #网址过滤
 CONFIG_PACKAGE_luci-app-flowoffload=y #Turbo ACC 网络加速
 CONFIG_PACKAGE_luci-app-nlbwmon=y #宽带流量监控
-CONFIG_PACKAGE_luci-app-wrtbwmon=y #实时流量监测
 EOF
 
 # LuCI主题:

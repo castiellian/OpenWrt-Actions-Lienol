@@ -8,7 +8,7 @@
 #=================================================
 
 sed -i 's/192.168.1.1/10.0.0.1/g' package/base-files/files/bin/config_generate #定制默认IP
-sed -i 's/max-width:200px/max-width:1000px/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm #修改首页样式
+# sed -i 's/max-width:200px/max-width:1000px/g' feeds/luci/modules/luci-mod-admin-full/luasrc/view/admin_status/index.htm #修改首页样式
 # sed -i 's/o.default = "admin"/o.default = ""/g' lienol/luci-app-passwall/luasrc/model/cbi/passwall/balancing.lua #去除haproxy默认密码(最新版已无密码)
 
 # 添加第三方软件包
@@ -127,7 +127,6 @@ CONFIG_PACKAGE_luci-app-passwall_INCLUDE_dns2socks=y
 CONFIG_PACKAGE_luci-app-passwall_INCLUDE_pdnsd=y
 CONFIG_PACKAGE_kcptun-client=y
 CONFIG_PACKAGE_haproxy=y
-CONFIG_PACKAGE_chinadns-ng=y
 CONFIG_PACKAGE_v2ray=y
 CONFIG_PACKAGE_v2ray-plugin=y
 CONFIG_PACKAGE_simple-obfs=y
@@ -167,6 +166,7 @@ cat >> .config <<EOF
 # CONFIG_PACKAGE_luci-app-ssr-libev-server is not set #ssr-libev服务端
 # CONFIG_PACKAGE_luci-app-ssr-python-pro-server is not set #ssr-python服务端
 # CONFIG_PACKAGE_luci-app-kcptun is not set #Kcptun客户端
+# CONFIG_PACKAGE_chinadns-ng is not set #chinadns-ng服务
 #
 # 文件共享相关(禁用):
 #
